@@ -1,0 +1,9 @@
+.example-container mat-form-field + mat-form-field {
+
+    margin-left: 10px;
+  
+  }
+.botao{
+  display: flex;
+  align-content: center;
+}

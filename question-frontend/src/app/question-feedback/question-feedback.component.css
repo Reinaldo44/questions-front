@@ -1,0 +1,12 @@
+.example-card{
+    width: 90%;
+    margin: auto;
+    background-color: rgb(235, 235, 235);
+    display: flex;
+    justify-content:center;
+}
+.text-error{
+
+    color: #ff0000;
+  
+  }

@@ -1,0 +1,61 @@
+
+{
+    "questions": [
+        
+      {
+        "id": 1,
+        "descricao": "Qual é a capital do Brasil?",
+        "categoria": "Geografia",
+        "answers": [
+          {
+            "value": "a",
+            "descricao": "Rio de Janeiro",
+            "acerto": false
+          },
+          {
+            "value": "b",
+            "descricao": "São Paulo",
+            "acerto": false
+          },
+          {
+            "value": "c",
+            "descricao": "Brasília",
+            "acerto": true
+          },
+          {
+            "value": "d",
+            "descricao": "Salvador",
+            "acerto": false
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "descricao": "Qual é a fórmula da água?",
+        "categoria": "Química",
+        "answers": [
+          {
+            "value": "a",
+            "descricao": "$$CO_2$$",
+            "acerto": false
+          },
+          {
+            "value": "b",
+            "descricao": "$$O_2$$",
+            "acerto": false
+          },
+          {
+            "value": "c",
+            "descricao": "$$H_2O$$",
+            "acerto": true
+          },
+          {
+            "value": "d",
+            "descricao": "$$CH_4$$",
+            "acerto": false
+          }
+        ]
+      }
+    ]
+  }
+  

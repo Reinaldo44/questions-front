@@ -1,0 +1,43 @@
+<div *ngIf="question">
+  
+
+  <mat-card-header>
+
+    <mat-card-title>
+       <label id="example-radio-group-label">{{question.descricao}}</label>
+    </mat-card-title>
+
+  </mat-card-header>
+
+<mat-card-content>
+
+<form (ngSubmit)="onSubmit()">
+
+<mat-radio-group [formControl]="selected" aria-labelledby="example-radio-group-label" class="example-radio-group">
+
+  @for (answer of question.answers; track answer) {
+
+    <mat-radio-button class="example-radio-button" [id]="answer.id" [value]="answer.id">
+      {{answer.descricao}}
+    </mat-radio-button>
+
+  }
+
+  <p>Value: {{ selected.value }}</p>
+
+</mat-radio-group>
+
+<button type="submit" mat-raised-button color="primary">Próxima</button>
+
+</form>
+
+</mat-card-content>
+</div>
+
+
+
+
+
+
+
+

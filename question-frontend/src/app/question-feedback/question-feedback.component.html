@@ -1,0 +1,17 @@
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Resultado</mat-card-title>
+      <mat-card-subtitle></mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>Seu acerto foi {{feedback.resultado}} questões.</p>
+      <p></p>
+      <p>{{feedback.messageFeedback}}</p>
+      
+      <mat-list role="list">
+        <p>Segue conteúdos para aprimorar nos seus estudos:</p>
+        <mat-list-item role="listitem">Link para estudo:<a mat-button [href]="feedback.linkFeedback"> {{feedback.linkFeedback}}</a></mat-list-item>
+      </mat-list>
+      
+    </mat-card-content>
+  </mat-card>
