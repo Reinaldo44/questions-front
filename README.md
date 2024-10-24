@@ -1,4 +1,4 @@
-# Projeto Frontend de Quiz Tutor
+# Projeto Frontend do Quiz Tutor
 
 ## Sobre o projeto:
 O projeto frontend, a tela da aplicação Quiz foi desenvolvida com a linguagem Typescript e com o auxilio do framework Angular, 
