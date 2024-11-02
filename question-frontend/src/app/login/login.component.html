@@ -1,5 +1,13 @@
-<div class="example-container">
+<div class="container">
+  <div class="login-form">
+    <h2>Iniciar o Teste</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <label for="username">Email:</label>
+      <input type="email" formControlName="username" id="username" autofocus/>
+      <br />
 
-    <button mat-flat-button (click)="cadastrarUsuario()">Começar o teste</button>
-
+      <button type="submit">Start</button>
+      
+    </form>
+  </div>
 </div>

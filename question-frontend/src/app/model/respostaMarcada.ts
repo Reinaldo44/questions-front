@@ -1,6 +1,6 @@
 export interface respostaMarcada{
 
-    idQuestion: string;
-    idAnswer: string;
+    idQuestion?: string;
+    idAnswer?: string;
 
 } 

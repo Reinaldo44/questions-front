@@ -29,7 +29,7 @@ export class ListServiceService {
   }
 
 
-  public save(question: question) : Observable<question>{
+  public save(question: any) : Observable<question>{
     return this.http.post<question>(this.questionsUrl, question);
   }
 

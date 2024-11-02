@@ -1,6 +1,6 @@
 export interface answers{
 
-    id: string;
+    id?: any;
     descricao: String;
     acerto: boolean;
 

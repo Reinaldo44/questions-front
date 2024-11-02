@@ -11,9 +11,9 @@
 
 <mat-card-content>
 
-<form (ngSubmit)="onSubmit()">
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
 
-<mat-radio-group [formControl]="selected" aria-labelledby="example-radio-group-label" class="example-radio-group">
+<mat-radio-group formControlName="selected" aria-labelledby="example-radio-group-label" class="example-radio-group" required>
 
   @for (answer of question.answers; track answer) {
 
@@ -22,12 +22,15 @@
     </mat-radio-button>
 
   }
-
-  <p>Value: {{ selected.value }}</p>
+  
+  <div *ngIf="formGroup.get('selected')?.invalid && (formGroup.get('selected')?.dirty)">
+    Name is required.
+  </div>
+  <p>Value: {{ formGroup.value.selected }}</p>
 
 </mat-radio-group>
 
-<button type="submit" mat-raised-button color="primary">Próxima</button>
+<button type="submit" [disabled]="!formGroup.valid" mat-raised-button color="primary">Próxima</button>
 
 </form>
 

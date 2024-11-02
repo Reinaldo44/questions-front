@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatRadioModule} from '@angular/material/radio';
-import { ListServiceService } from '../service/list-service.service';
-import { FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { ListServiceService } from '../services/list-service.service';
+import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import { NgClass, NgFor, NgIf } from '@angular/common';
 import { question } from '../model/question';
 import {MatCardModule} from '@angular/material/card';
@@ -18,9 +18,8 @@ import { respostaMarcada } from '../model/respostaMarcada';
   styleUrl: './list-question.component.css'
 })
 export class ListQuestionComponent implements OnInit{
-  
-  selected = new FormControl('');// Aqui está o controle do grupo de 
-  //questions: question[] = [];
+
+  formGroup!: FormGroup;
   question!: question;
   id: any = 0;
   selectedAnswer: any;
@@ -29,81 +28,94 @@ export class ListQuestionComponent implements OnInit{
     idAnswer: ''
 };
 
+excludedNumbers: number[] = [];
+randomNumber: number = 0;
+
   option: any;
 
-
     constructor(private listService: ListServiceService,private router: Router){
-  
-  }
+    
+    }
   ngOnInit(): void {
-
-    this.randomId();
+    
+      
+     this.formGroup = new FormGroup({
+      selected: new FormControl('', [Validators.required])
+     });
+    this.generateNewRandom();
     this.getById(this.id);
     
 
   }
-    // Get all questions
-    //getQuestions(){
-    //  this.listService.findAll().subscribe(data => {
-    //    this.questions = data;
-    // }
 
     getById(id: number){
 
         this.listService
-              .findById(id).subscribe (data => {  this.question = data });
+              .findById(id).subscribe(data => { 
+                
+                this.question = data;
+              
+              });
         
     }
+    selectedValueUser(): void{
 
+      this.option = this.formGroup.value.selected; 
+      this.resposta.idAnswer = this.option;        
+      this.resposta.idQuestion = this.question.id;
+    }
+
+    
     onSubmit(): void{
 
-      this.option = this.selected.value 
-
-      if(this.option){
-
-        this.resposta.idAnswer = this.option;
-
-      } 
-
-      this.resposta.idQuestion = this.question.id;
+    
+      this.selectedValueUser();
 
       this.listService.saveAnswer(this.resposta).subscribe({
         
         next: () => {
 
           this.resultado();
-          this.randomId();
+          this.generateNewRandom();
           this.getById(this.id);
+          this.formGroup.get('selected')?.reset();
+          
       }       
       ,
         error: (erro) => {
-        alert("Usuário ou Senha inválido(s)!");
+
         console.log(erro);
+
       }
     }
   ); 
+}
 
-    }    
+     
+    generateNewRandom() {
 
-    randomId(){
+      let newRandomNumber: number;
 
-       this.id++;
-      
+      do {
+
+        newRandomNumber = Math.floor(Math.random() * 11) + 1;
+
+      } 
+      while (this.excludedNumbers.includes(newRandomNumber));
+      this.excludedNumbers.push(newRandomNumber);
+      this.id = newRandomNumber;
+
     }
 
     resultado():void{
 
-      if(this.id >= 10){
+      if(this.excludedNumbers.length >= 10){
 
         this.router.navigateByUrl('feedback');
 
       }
 
     }
-
-
-
-    
   
 
   }

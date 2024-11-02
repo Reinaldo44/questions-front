@@ -8,3 +8,5 @@ export const backendLogin = 'http://localhost:8080/userquestion'
 
 export const backendListAnswer = 'http://localhost:8080/listAnswer'
 
+export const loginAdmin = 'http://localhost:8080/auth/login';
+

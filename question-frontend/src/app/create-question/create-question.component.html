@@ -1,14 +1,15 @@
-<form class="example-form">
+<div class="login-form">
+<form [formGroup]="questionForm" class="example-form"  (ngSubmit)="onSubmit()">
     <mat-form-field class="example-full-width">
       <mat-label>Cadastrar pergunta</mat-label>
-      <input matInput placeholder="" value="">
+      <input matInput formControlName="descricao" id="descricao" placeholder="" value="">
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Categoria</mat-label>
-      <mat-select>
-        <mat-option value="one">Backend</mat-option>
-        <mat-option value="two">Frontend</mat-option>
+      <mat-select formControlName="categoria" id="categoria">
+        <mat-option value="Backend">Backend</mat-option>
+        <mat-option value="Frontend">Frontend</mat-option>
       </mat-select>
     </mat-form-field>
 
@@ -16,14 +17,14 @@
 
     <mat-form-field class="example-full-width">
         <mat-label>Cadastrar resposta</mat-label>
-        <input matInput placeholder="" value="">
+        <input matInput formControlName="answer1" id="answer1" placeholder="" value="">
       </mat-form-field>
 
     <mat-form-field>
         <mat-label>Opção correta</mat-label>
-        <mat-select>
-          <mat-option value="one">Correta</mat-option>
-          <mat-option value="two">Errada</mat-option>
+        <mat-select formControlName="answerBoolean1" id="answerBoolean1">
+          <mat-option value="true">Correta</mat-option>
+          <mat-option value="false">Errada</mat-option>
         </mat-select>
       </mat-form-field>
 
@@ -32,14 +33,13 @@
 
       <mat-form-field class="example-full-width">
           <mat-label>Cadastrar resposta</mat-label>
-          <input matInput placeholder="" value="">
-        </mat-form-field>
-  
+          <input matInput formControlName="answer2" id="answer2" placeholder="" value="">
+        </mat-form-field>  
       <mat-form-field>
           <mat-label>Opção correta</mat-label>
-          <mat-select>
-            <mat-option value="one">Correta</mat-option>
-            <mat-option value="two">Errada</mat-option>
+          <mat-select formControlName="answerBoolean2" id="answerBoolean2">
+            <mat-option value="true">Correta</mat-option>
+            <mat-option value="false">Errada</mat-option>
           </mat-select>
         </mat-form-field>
   
@@ -50,14 +50,14 @@
 
       <mat-form-field class="example-full-width">
           <mat-label>Cadastrar resposta</mat-label>
-          <input matInput placeholder="" value="">
+          <input matInput formControlName="answer3" id="answer3" placeholder="" value="">
         </mat-form-field>
   
       <mat-form-field>
           <mat-label>Opção correta</mat-label>
-          <mat-select>
-            <mat-option value="one">Correta</mat-option>
-            <mat-option value="two">Errada</mat-option>
+          <mat-select formControlName="answerBoolean3" id="answerBoolean3">
+            <mat-option value="true">Correta</mat-option>
+            <mat-option value="false">Errada</mat-option>
           </mat-select>
         </mat-form-field>
   
@@ -66,19 +66,22 @@
   
         <mat-form-field class="example-full-width">
             <mat-label>Cadastrar resposta</mat-label>
-            <input matInput placeholder="" value="">
+            <input matInput formControlName="answer4" id="answer4" placeholder="" value="">
           </mat-form-field>
     
         <mat-form-field>
             <mat-label>Opção correta</mat-label>
-            <mat-select>
-              <mat-option value="one">Correta</mat-option>
-              <mat-option value="two">Errada</mat-option>
+            <mat-select formControlName="answerBoolean4" id="answerBoolean4">
+              <mat-option value="true">Correta</mat-option>
+              <mat-option value="false">Errada</mat-option>
             </mat-select>
           </mat-form-field>
     
         </div>
+
+        <button type="submit">Cadastrar</button>
   
 
 </form>
+</div>
   
